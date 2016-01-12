@@ -19057,8 +19057,8 @@ var Box = React.createClass({
 		};
 
 		var panelStyle = {
-			marginTop: 10,
-			marginBottom: 10
+			boxShadow: "2px 8px 12px #aaaaaa",
+			border: "none"
 		};
 
 		if (this.props.headingColor) {
@@ -19067,129 +19067,133 @@ var Box = React.createClass({
 
 		return React.createElement(
 			"div",
-			{ className: colWidth, style: panelStyle },
-			(() => {
-				if (this.props.boxStyle === "standard") {
-					return React.createElement(
-						"div",
-						{ className: "panel-heading panel-primary", style: headerStyle },
-						React.createElement(
-							"h3",
-							{ className: "panel-title" },
-							this.props.label
-						),
-						React.createElement(
-							"h3",
-							null,
-							this.props.statistic
-						)
-					);
-				} else if (this.props.boxStyle === "bold") {
-					headerStyle.textAlign = "center";
-					headerStyle.borderBottomLeftRadius = 3;
-					headerStyle.borderBottomRightRadius = 3;
-					return React.createElement(
-						"div",
-						{ className: "panel-heading panel-primary", style: headerStyle },
-						React.createElement(
-							"h1",
-							null,
-							this.props.statistic
-						),
-						React.createElement(
-							"p",
-							null,
-							this.props.label
-						)
-					);
-				} else if (this.props.boxStyle === "wide-bold") {
-					headerStyle.height = 250;
-					return React.createElement("div", { className: "panel-heading panel-primary", style: headerStyle });
-				} else {
-					headerStyle.height = 0;
-					headerStyle.padding = 0;
-					return React.createElement("div", { className: "panel-heading panel-primary", style: headerStyle });
-				}
-			})(),
-			(() => {
-				if (this.props.boxStyle === "plain") {
-					bodyStyle.border = "2px solid #888888";
-					return React.createElement(
-						"div",
-						{ className: "panel-body", style: bodyStyle },
-						React.createElement(
-							"h3",
-							null,
-							this.props.statistic
-						),
-						React.createElement(
-							"p",
-							null,
-							this.props.label
-						)
-					);
-				} else if (this.props.boxStyle === "standard") {
-					bodyStyle.border = "1px solid " + this.props.headingColor;
-					bodyStyle.height = 70;
-					bodyStyle.borderTopRightRadius = 0;
-					bodyStyle.borderTopLeftRadius = 0;
-					return React.createElement("div", { className: "panel-body", style: bodyStyle });
-				}
-			})(),
-			(() => {
-				if (this.props.boxStyle === "wide-bold") {
-					return React.createElement(
-						"div",
-						{ className: "panel-footer", style: footerStyle },
-						React.createElement(
+			{ className: colWidth },
+			React.createElement(
+				"div",
+				{ className: "panel", style: panelStyle },
+				(() => {
+					if (this.props.boxStyle === "standard") {
+						return React.createElement(
 							"div",
-							{ className: "row" },
+							{ className: "panel-heading panel-primary", style: headerStyle },
 							React.createElement(
-								"div",
-								{ className: "col-sm-4" },
-								React.createElement(
-									"h3",
-									null,
-									this.props.footer[0]
-								),
-								React.createElement(
-									"p",
-									null,
-									this.props.subFoot[0]
-								)
+								"h3",
+								{ className: "panel-title" },
+								this.props.label
 							),
 							React.createElement(
-								"div",
-								{ className: "col-sm-4" },
-								React.createElement(
-									"h3",
-									null,
-									this.props.footer[1]
-								),
-								React.createElement(
-									"p",
-									null,
-									this.props.subFoot[1]
-								)
+								"h3",
+								null,
+								this.props.statistic
+							)
+						);
+					} else if (this.props.boxStyle === "bold") {
+						headerStyle.textAlign = "center";
+						headerStyle.borderBottomLeftRadius = 3;
+						headerStyle.borderBottomRightRadius = 3;
+						return React.createElement(
+							"div",
+							{ className: "panel-heading panel-primary", style: headerStyle },
+							React.createElement(
+								"h1",
+								null,
+								this.props.statistic
 							),
 							React.createElement(
+								"p",
+								null,
+								this.props.label
+							)
+						);
+					} else if (this.props.boxStyle === "wide-bold") {
+						headerStyle.height = 250;
+						return React.createElement("div", { className: "panel-heading panel-primary", style: headerStyle });
+					} else {
+						headerStyle.height = 0;
+						headerStyle.padding = 0;
+						return React.createElement("div", { className: "panel-heading panel-primary", style: headerStyle });
+					}
+				})(),
+				(() => {
+					if (this.props.boxStyle === "plain") {
+						bodyStyle.border = "2px solid #888888";
+						return React.createElement(
+							"div",
+							{ className: "panel-body", style: bodyStyle },
+							React.createElement(
+								"h3",
+								null,
+								this.props.statistic
+							),
+							React.createElement(
+								"p",
+								null,
+								this.props.label
+							)
+						);
+					} else if (this.props.boxStyle === "standard") {
+						bodyStyle.border = "1px solid " + this.props.headingColor;
+						bodyStyle.height = 70;
+						bodyStyle.borderTopRightRadius = 0;
+						bodyStyle.borderTopLeftRadius = 0;
+						return React.createElement("div", { className: "panel-body", style: bodyStyle });
+					}
+				})(),
+				(() => {
+					if (this.props.boxStyle === "wide-bold") {
+						return React.createElement(
+							"div",
+							{ className: "panel-footer", style: footerStyle },
+							React.createElement(
 								"div",
-								{ className: "col-sm-4" },
+								{ className: "row" },
 								React.createElement(
-									"h3",
-									null,
-									this.props.footer[2]
+									"div",
+									{ className: "col-sm-4" },
+									React.createElement(
+										"h3",
+										null,
+										this.props.footer[0]
+									),
+									React.createElement(
+										"p",
+										null,
+										this.props.subFoot[0]
+									)
 								),
 								React.createElement(
-									"p",
-									null,
-									this.props.subFoot[2]
+									"div",
+									{ className: "col-sm-4" },
+									React.createElement(
+										"h3",
+										null,
+										this.props.footer[1]
+									),
+									React.createElement(
+										"p",
+										null,
+										this.props.subFoot[1]
+									)
+								),
+								React.createElement(
+									"div",
+									{ className: "col-sm-4" },
+									React.createElement(
+										"h3",
+										null,
+										this.props.footer[2]
+									),
+									React.createElement(
+										"p",
+										null,
+										this.props.subFoot[2]
+									)
 								)
 							)
-						)
-					);
-				}
-			})()
+						);
+					}
+				})()
+			)
 		);
 	}
 
